@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./ExpenseForm.module.css";
 
 const ExpenseForm = (props) => {
   const [formData, setFormData] = useState({
@@ -35,103 +36,112 @@ const ExpenseForm = (props) => {
   };
 
   return (
-    <div>
+    <div className={styles["expense-form-container"]}>
       <h2>가계부</h2>
       <form onSubmit={handleSubmit}>
-        <label>
-          이름
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-
-        <label>
-          가격
-          <input
-            type="number"
-            name="price"
-            value={formData.price}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-
-        <label>
-          유형
-          <input
-            type="text"
-            name="type"
-            value={formData.type}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-
-        <label>
-          구입 날짜
-          <input
-            type="date"
-            name="purchaseDate"
-            value={formData.purchaseDate}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-
-        <label>
-          메모
-          <input
-            type="checkbox"
-            name="hasMemo"
-            checked={formData.hasMemo}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-
-        {formData.hasMemo && (
-          <label>
-            메모 작성
+        <div className={styles["form-row"]}>
+          <label className={styles["form-label"]}>
+            이름
             <input
+              className={styles["form-input"]}
               type="text"
-              name="memo"
-              value={formData.memo}
+              name="name"
+              value={formData.name}
               onChange={handleInputChange}
             />
           </label>
-        )}
-        <br />
-
-        <label>
-          재구매 의사
-          <label>
+        </div>
+        <div className={styles["form-row"]}>
+          <label className={styles["form-label"]}>
+            가격
             <input
-              type="radio"
-              name="wantsToRepurchase"
-              value="true"
-              checked={formData.wantsToRepurchase}
+              className={styles["form-input"]}
+              type="number"
+              name="price"
+              value={formData.price}
               onChange={handleInputChange}
             />
-            한다
           </label>
-          <label>
+        </div>
+        <div className={styles["form-row"]}>
+          <label className={styles["form-label"]}>
+            유형
             <input
-              type="radio"
-              name="wantsToRepurchase"
-              value="false"
-              checked={!formData.wantsToRepurchase}
+              className={styles["form-input"]}
+              type="text"
+              name="type"
+              value={formData.type}
               onChange={handleInputChange}
             />
-            안한다
           </label>
-        </label>
-        <br />
+        </div>
+        <div className={styles["form-row"]}>
+          <label className={styles["form-label"]}>
+            구입 날짜
+            <input
+              className={styles["form-input"]}
+              type="date"
+              name="purchaseDate"
+              value={formData.purchaseDate}
+              onChange={handleInputChange}
+            />
+          </label>
+        </div>
+        <div>
+          <label className={styles["form-label"]}>
+            메모
+            <input
+              className={styles["form-input"]}
+              type="checkbox"
+              name="hasMemo"
+              checked={formData.hasMemo}
+              onChange={handleInputChange}
+            />
+          </label>
 
-        <button type="submit">Add Expense</button>
+          {formData.hasMemo && (
+            <label>
+              메모 작성
+              <input
+                className={["form-checkbox-label"]}
+                type="text"
+                name="memo"
+                value={formData.memo}
+                onChange={handleInputChange}
+              />
+            </label>
+          )}
+        </div>
+
+        <div>
+          <label className={styles["form-label"]}>
+            재구매 의사
+            <label>
+              <input
+                type="radio"
+                name="wantsToRepurchase"
+                value="true"
+                checked={formData.wantsToRepurchase}
+                onChange={handleInputChange}
+              />
+              한다
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="wantsToRepurchase"
+                value="false"
+                checked={!formData.wantsToRepurchase}
+                onChange={handleInputChange}
+              />
+              안한다
+            </label>
+          </label>
+        </div>
+
+        <button className={styles["button"]} type="submit">
+          추가
+        </button>
       </form>
     </div>
   );
