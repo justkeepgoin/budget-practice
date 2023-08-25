@@ -35,11 +35,13 @@ const Filters = (props) => {
           value={selectedType}
           onChange={handleTypeChange}
         >
-          <option value="">유형필터</option>
-          <option value="food">음식</option>
-          <option value="clothing">의류</option>
-          <option value="electronics">전자제품</option>
-          {/* ... */}
+          <option value="">전체</option>
+          <option value="food">식사</option>
+          <option value="cafe">카페</option>
+          <option value="life">생활</option>
+          <option value="culture">문화/여가</option>
+          <option value="cosmetic">의복/미용</option>
+          <option value="entertainment">술/유흥</option>
         </select>
       </label>
       <label>
