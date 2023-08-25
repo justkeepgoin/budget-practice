@@ -12,12 +12,22 @@ const ExpenseForm = (props) => {
     wantsToRepurchase: false,
   });
 
+  const handleRadioChange = (value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      wantsToRepurchase: value,
+    }));
+  };
+
   const handleInputChange = (event) => {
     const { name, value, type, checked } = event.target;
 
+    const inputValue =
+      type === "checkbox" || type === "radio" ? checked : value;
+
     setFormData((prevData) => ({
       ...prevData,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: inputValue,
     }));
   };
 
@@ -66,13 +76,20 @@ const ExpenseForm = (props) => {
         <div className={styles["form-row"]}>
           <label className={styles["form-label"]}>
             유형
-            <input
+            <select
               className={styles["form-input"]}
-              type="text"
               name="type"
               value={formData.type}
               onChange={handleInputChange}
-            />
+            >
+              <option value="">전체</option>
+              <option value="food">식사</option>
+              <option value="cafe">카페</option>
+              <option value="life">생활</option>
+              <option value="culture">문화/여가</option>
+              <option value="cosmetic">의복/미용</option>
+              <option value="entertainment">술/유흥</option>
+            </select>
           </label>
         </div>
         <div className={styles["form-row"]}>
@@ -120,9 +137,9 @@ const ExpenseForm = (props) => {
               <input
                 type="radio"
                 name="wantsToRepurchase"
-                value="true"
-                checked={formData.wantsToRepurchase}
-                onChange={handleInputChange}
+                value={true}
+                checked={formData.wantsToRepurchase === true}
+                onChange={() => handleRadioChange(true)}
               />
               한다
             </label>
@@ -130,9 +147,9 @@ const ExpenseForm = (props) => {
               <input
                 type="radio"
                 name="wantsToRepurchase"
-                value="false"
-                checked={!formData.wantsToRepurchase}
-                onChange={handleInputChange}
+                value={false}
+                checked={formData.wantsToRepurchase === false}
+                onChange={() => handleRadioChange(false)}
               />
               안한다
             </label>
