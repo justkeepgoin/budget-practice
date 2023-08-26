@@ -117,10 +117,10 @@ const ExpenseForm = (props) => {
           </label>
 
           {formData.hasMemo && (
-            <label>
+            <label className={styles["form-checkbox-label"]}>
               메모 작성
               <input
-                className={["form-checkbox-label"]}
+                className={styles["form-checkbox-input"]}
                 type="text"
                 name="memo"
                 value={formData.memo}
@@ -135,6 +135,7 @@ const ExpenseForm = (props) => {
             재구매 의사
             <label>
               <input
+                className={styles["form-input"]}
                 type="radio"
                 name="wantsToRepurchase"
                 value={true}
@@ -145,6 +146,7 @@ const ExpenseForm = (props) => {
             </label>
             <label>
               <input
+                className={styles["form-input"]}
                 type="radio"
                 name="wantsToRepurchase"
                 value={false}

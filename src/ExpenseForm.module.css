@@ -22,11 +22,21 @@
 }
 
 .form-checkbox-label {
+  font-weight: bold;
   display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.form-checkbox-input {
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-left: 1rem;
 }
 
 .button {
-  background-color: hwb(251 38% 17%);
+  background-color: #0b0b0c;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -35,5 +45,5 @@
 }
 
 .button:hover {
-  background-color: #0056b3;
+  background-color: hsl(283, 58%, 66%);
 }
