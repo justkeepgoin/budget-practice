@@ -4,8 +4,8 @@ import styles from "./Filters.module.css";
 const Filters = (props) => {
   const [selectedType, setSelectedType] = useState("");
   const [selectedSort, setSelectedSort] = useState("");
-  const [startDate, setStartDate] = useState(""); // 시작 날짜 상태
-  const [endDate, setEndDate] = useState(""); // 종료 날짜 상태
+  const [startDate, setStartDate] = useState(""); // 시작 기간
+  const [endDate, setEndDate] = useState(""); // 끝 기간
 
   const handleTypeChange = (event) => {
     setSelectedType(event.target.value);
@@ -17,16 +17,19 @@ const Filters = (props) => {
     props.onSortChange(event.target.value);
   };
 
+  // 시작 기간 변경 핸들러
   const handleStartDateChange = (event) => {
-    setStartDate(event.target.value);
-    props.onStartDateChange(event.target.value);
+    const newStartDate = event.target.value;
+    setStartDate(newStartDate);
+    props.onStartDateChange(newStartDate); // App 컴포넌트로 시작 기간 전달
   };
 
+  // 끝 기간 변경 핸들러
   const handleEndDateChange = (event) => {
-    setEndDate(event.target.value);
-    props.onEndDateChange(event.target.value);
+    const newEndDate = event.target.value;
+    setEndDate(newEndDate);
+    props.onEndDateChange(newEndDate); // App 컴포넌트로 끝 기간 전달
   };
-
   return (
     <div className={styles["filters-container"]}>
       <label className={styles["filters-label"]}>
