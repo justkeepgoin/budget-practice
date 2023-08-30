@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/budget-practice/static/css/main.e9daa7ef.css",
+    "main.js": "/budget-practice/static/js/main.c9a3ad9e.js",
+    "index.html": "/budget-practice/index.html",
+    "main.e9daa7ef.css.map": "/budget-practice/static/css/main.e9daa7ef.css.map",
+    "main.c9a3ad9e.js.map": "/budget-practice/static/js/main.c9a3ad9e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e9daa7ef.css",
+    "static/js/main.c9a3ad9e.js"
+  ]
+}
